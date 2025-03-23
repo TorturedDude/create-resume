@@ -17,7 +17,7 @@ import ru.resume.create_resume.enums.Role
  * Сервис для аутентификации
  */
 @Service
-class AuthenticationService(
+class AuthService(
     private val userService: UserService,
     private val jwtService: JwtService,
     private val userDetailsService: ReactiveUserDetailsService,
