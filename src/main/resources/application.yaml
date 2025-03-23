@@ -1,3 +1,32 @@
 spring:
   application:
     name: "create-resume"
+
+  # Настройки R2DBC (реактивное подключение к PostgreSQL)
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/create-resume
+    username: postgres
+    password: 354610213
+
+  # Настройки Liquibase (для миграций)
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml  # Путь к основному changelog-файлу
+    enabled: true  # Включить Liquibase (по умолчанию true)
+
+  # Настройки базы данных (для Liquibase, использует JDBC)
+  datasource:
+    url: jdbc:postgresql://localhost:5432/your-database  # URL для JDBC (Liquibase использует JDBC)
+    username: your-username  # Имя пользователя БД
+    password: your-password  # Пароль пользователя БД
+    driver-class-name: org.postgresql.Driver  # Драйвер PostgreSQL
+
+# Настройки сервера (опционально)
+server:
+  port: 8080  # Порт, на котором будет работать приложение
+
+# Настройки логирования (опционально)
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
+    org.liquibase: DEBUG
