@@ -2,6 +2,7 @@ package ru.resume.create_resume.services
 
 import kotlinx.coroutines.reactor.awaitSingle
 import kotlinx.coroutines.reactor.mono
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.authentication.ReactiveAuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.crypto.password.PasswordEncoder
@@ -21,7 +22,7 @@ class AuthService(
     private val userService: UserService,
     private val jwtService: JwtService,
     private val userDetailsService: ReactiveUserDetailsService,
-    private val passwordEncoder: PasswordEncoder,
+    @Autowired private val passwordEncoder: PasswordEncoder,
     private val authenticationManager: ReactiveAuthenticationManager
 ) {
 
