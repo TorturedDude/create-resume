@@ -13,8 +13,7 @@ import ru.resume.create_resume.exceptions.UserNotFoundException
  */
 @Service
 class UserService(
-    private val userRepository: UserRepository,
-    private val userMapper: UserMapper,
+    private val userRepository: UserRepository
 ) {
 
     /**
