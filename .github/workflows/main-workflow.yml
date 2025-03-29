@@ -38,7 +38,7 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t tortureddudea/create-resume-be:latest .
+        run: docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/create-resume-be:latest .
 
       - name: Push Docker image
-        run: docker push tortureddudea/create-resume-be:latest
+        run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/create-resume-be:latest
