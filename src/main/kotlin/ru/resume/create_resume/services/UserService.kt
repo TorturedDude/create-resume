@@ -24,10 +24,9 @@ class UserService(
      * @param id - индентификатор пользователя
      * @return модель пользователя
      */
-    fun get(id: Long): Mono<UserDto> = mono {
-        val result = userRepository.findById(id)
+    fun get(id: Long): Mono<User> = mono {
+        userRepository.findById(id)
             ?: throw UserNotFoundException("User not found with id: $id")
-        userMapper.toDto(result)
     }
 
     /**

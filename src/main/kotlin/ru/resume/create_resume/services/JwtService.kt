@@ -37,8 +37,8 @@ class JwtService(
      */
     fun generateToken(userDetails: UserDetails): Mono<String> = mono {
         val claims = mutableMapOf<String, Any>()
-        if (userDetails is User) { // Проверка, является ли userDetails объектом User
-            claims["id"] = userDetails.id as Any
+        if (userDetails is User) {
+            claims["id"] = userDetails.id!!
             claims["email"] = userDetails.email
             claims["roles"] = userDetails.role
         }

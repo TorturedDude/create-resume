@@ -40,9 +40,9 @@ class AuthService(
             role = Role.ROLE_USER
         )
 
-        userService.create(user).awaitSingle() // Ожидаем завершения создания пользователя
+        val userFromDb = userService.get(userService.create(user).awaitSingle()).awaitSingle()
 
-        val jwt = jwtService.generateToken(user).awaitSingle() // Ожидаем генерации токена
+        val jwt = jwtService.generateToken(userFromDb).awaitSingle()
         JwtAuthResponse(jwt)
     }
 
