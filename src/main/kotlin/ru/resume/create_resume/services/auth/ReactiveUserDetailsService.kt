@@ -1,4 +1,4 @@
-package ru.resume.create_resume.services
+package ru.resume.create_resume.services.auth
 
 import kotlinx.coroutines.reactor.mono
 import org.springframework.security.core.userdetails.ReactiveUserDetailsService

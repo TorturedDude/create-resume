@@ -1,4 +1,4 @@
-package ru.resume.create_resume.services
+package ru.resume.create_resume.services.auth
 
 import kotlinx.coroutines.reactor.awaitSingle
 import kotlinx.coroutines.reactor.mono

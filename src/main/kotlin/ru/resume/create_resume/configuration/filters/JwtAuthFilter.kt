@@ -8,8 +8,8 @@ import org.springframework.web.server.ServerWebExchange
 import org.springframework.web.server.WebFilter
 import org.springframework.web.server.WebFilterChain
 import reactor.core.publisher.Mono
-import ru.resume.create_resume.services.JwtService
-import ru.resume.create_resume.services.ReactiveUserDetailsService
+import ru.resume.create_resume.services.auth.JwtService
+import ru.resume.create_resume.services.auth.ReactiveUserDetailsService
 
 @Component
 class JwtAuthenticationFilter(

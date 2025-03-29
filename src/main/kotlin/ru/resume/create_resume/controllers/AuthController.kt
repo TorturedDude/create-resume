@@ -8,7 +8,7 @@ import reactor.core.publisher.Mono
 import ru.resume.create_resume.domain.dtos.auth.JwtAuthResponse
 import ru.resume.create_resume.domain.dtos.auth.SignInRequest
 import ru.resume.create_resume.domain.dtos.auth.SignUpRequest
-import ru.resume.create_resume.services.AuthService
+import ru.resume.create_resume.services.auth.AuthService
 
 /**
  * Контроллер для аунтентификации

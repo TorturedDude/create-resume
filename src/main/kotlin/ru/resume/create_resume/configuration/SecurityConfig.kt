@@ -16,7 +16,7 @@ import org.springframework.web.cors.reactive.CorsConfigurationSource
 import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource
 import ru.resume.create_resume.configuration.filters.JwtAuthenticationFilter
 import ru.resume.create_resume.enums.Role
-import ru.resume.create_resume.services.ReactiveUserDetailsService
+import ru.resume.create_resume.services.auth.ReactiveUserDetailsService
 
 @Configuration
 @EnableWebFluxSecurity

@@ -1,4 +1,4 @@
-package ru.resume.create_resume.services
+package ru.resume.create_resume.services.auth
 
 import io.jsonwebtoken.Claims
 import io.jsonwebtoken.Jwts

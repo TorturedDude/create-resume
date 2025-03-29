@@ -1,9 +1,8 @@
-package ru.resume.create_resume.services
+package ru.resume.create_resume.services.auth
 
 import kotlinx.coroutines.reactor.mono
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Mono
-import ru.resume.create_resume.domain.dtos.user.UserDto
 import ru.resume.create_resume.domain.entities.User
 import ru.resume.create_resume.domain.mappers.UserMapper
 import ru.resume.create_resume.domain.repositories.UserRepository
