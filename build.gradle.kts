@@ -33,6 +33,7 @@ dependencies {
 	implementation("org.mapstruct:mapstruct:1.5.5.Final")
 	kapt("org.mapstruct:mapstruct-processor:1.5.5.Final")
 	implementation("org.liquibase:liquibase-core")
+	implementation("io.minio:minio:8.5.7")
 
 	// Spring Security OAuth2 Resource Server (для JWT)
 	implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")

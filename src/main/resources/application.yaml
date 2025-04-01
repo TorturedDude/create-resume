@@ -36,3 +36,14 @@ logging:
 
 token:
   signing-key: ${JWT_SIGNIN_KEY}
+
+openai:
+  enabled: ${OPEN_AI_ENABLED}
+  api:
+    key: ${OPEN_AI_API_KEY}
+  base-url: ${OPEN_AI_API_BASE_URL}
+
+minio:
+  access-key: ${MINIO_ACCESS_KEY}
+  secret-key: ${MINIO_SECRET_KEY}
+  minio-url: ${MINIO_URL}
