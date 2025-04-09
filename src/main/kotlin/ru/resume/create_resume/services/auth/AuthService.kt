@@ -13,6 +13,7 @@ import ru.resume.create_resume.domain.dtos.auth.SignInRequest
 import ru.resume.create_resume.domain.dtos.auth.SignUpRequest
 import ru.resume.create_resume.domain.entities.User
 import ru.resume.create_resume.enums.Role
+import ru.resume.create_resume.utils.logger
 
 /**
  * Сервис для аутентификации
@@ -25,6 +26,8 @@ class AuthService(
     @Autowired private val passwordEncoder: PasswordEncoder,
     private val authenticationManager: ReactiveAuthenticationManager
 ) {
+
+    private val log = logger()
 
     /**
      * Регистрация пользователя
@@ -43,6 +46,7 @@ class AuthService(
         val userFromDb = userService.get(userService.create(user).awaitSingle()).awaitSingle()
 
         val jwt = jwtService.generateToken(userFromDb).awaitSingle()
+        log.info("User was registered: ${user.username}")
         JwtAuthResponse(jwt)
     }
 
@@ -63,6 +67,7 @@ class AuthService(
         val user = userDetailsService.findByUsername(request.username).awaitSingle()
 
         val jwt = jwtService.generateToken(user).awaitSingle()
+        log.info("User: ${user.username} come in")
         JwtAuthResponse(jwt)
     }
 }

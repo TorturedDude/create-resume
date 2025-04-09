@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Mono
 import ru.resume.create_resume.domain.entities.User
+import ru.resume.create_resume.utils.logger
 import java.util.*
 import javax.crypto.SecretKey
 
@@ -21,6 +22,9 @@ class JwtService(
     @Value("\${token.signing-key}")
     private val jwtSingInKey: String
 ) {
+
+    private val log = logger()
+
     /**
      * Извлечение имени пользователя из токена
      *
@@ -77,6 +81,7 @@ class JwtService(
      * @return токен
      */
     private fun generateToken(extraClaims: Map<String, Any>, userDetails: UserDetails): String {
+        log.info("Generating JWT token for user ${userDetails.username}")
         return Jwts.builder()
             .setClaims(extraClaims)
             .setSubject(userDetails.username)
