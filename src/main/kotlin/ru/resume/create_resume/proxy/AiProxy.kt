@@ -9,12 +9,15 @@ import ru.resume.create_resume.domain.dtos.ai.AiFileContentDto
 import ru.resume.create_resume.domain.dtos.ai.AiInputDto
 import ru.resume.create_resume.domain.dtos.ai.AiRequestDto
 import ru.resume.create_resume.domain.dtos.ai.AiTextContentDto
+import ru.resume.create_resume.utils.logger
 
 @Component
 class AiProxy(
     @Qualifier("openAiClient")
     private val client: ObjectProvider<WebClient>
 ) {
+
+    private val log = logger()
 
     suspend fun createResume(filename: String, fileData: String, text: String): String? =
         kotlin.runCatching {
@@ -28,7 +31,7 @@ class AiProxy(
                 ?.retrieve()
                 ?.awaitBodyOrNull<String>()
         }.onFailure {
-
+            log.error("Error while creating new resume - $it")
         }.getOrNull()
 
     private fun generateRequestBody(filename: String, fileData: String, text: String): AiRequestDto =
