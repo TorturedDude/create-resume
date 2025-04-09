@@ -33,6 +33,7 @@ logging:
     root: INFO
     org.springframework: INFO
     org.liquibase: DEBUG
+    ru.resume.create_resume: INFO
 
 token:
   signing-key: ${JWT_SIGNIN_KEY}
